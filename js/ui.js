@@ -4,15 +4,19 @@ export default class CalculatorUI {
 		this.currentOperation = null;
 
 		const rateUnits = [
-			{ val: "ao_mes", label: "ao mês" },
-			{ val: "ao_ano", label: "ao ano" },
-			{ val: "ao_dia", label: "ao dia" },
+			{ val: "Dia", label: "ao dia" },
+			{ val: "Mes", label: "ao mês" },
+			{ val: "Trimestre", label: "ao trimestre" },
+			{ val: "Semestre", label: "ao semestre" },
+			{ val: "Ano", label: "ao ano" },
 		];
 
 		const timeUnits = [
-			{ val: "meses", label: "Meses" },
-			{ val: "anos", label: "Anos" },
-			{ val: "dias", label: "Dias" },
+			{ val: "Dia", label: "Dias" },
+			{ val: "Mes", label: "Meses" },
+			{ val: "Trimestre", label: "Trimestres" },
+			{ val: "Semestre", label: "Semestres" },
+			{ val: "Ano", label: "Anos" },
 		];
 
 		this.operations = [
@@ -34,16 +38,16 @@ export default class CalculatorUI {
 						placeholder: "Ex: 0.05",
 						icon: "ph-percent",
 						hasUnits: true,
-						unitKey: "unidade_i",
+						unitKey: "unidadeTaxaJurosEnum",
 						unitOptions: rateUnits,
 					},
 					{
 						key: "n",
 						label: "Tempo (n)",
-						placeholder: "Ex: 2",
+						placeholder: "Ex: 24",
 						icon: "ph-calendar-blank",
 						hasUnits: true,
-						unitKey: "unidade_n",
+						unitKey: "unidadeTempoEnum",
 						unitOptions: timeUnits,
 					},
 				],
@@ -66,16 +70,16 @@ export default class CalculatorUI {
 						placeholder: "Ex: 0.05",
 						icon: "ph-percent",
 						hasUnits: true,
-						unitKey: "unidade_i",
+						unitKey: "unidadeTaxaJurosEnum",
 						unitOptions: rateUnits,
 					},
 					{
 						key: "n",
 						label: "Tempo (n)",
-						placeholder: "Ex: 2",
+						placeholder: "Ex: 24",
 						icon: "ph-calendar-blank",
 						hasUnits: true,
-						unitKey: "unidade_n",
+						unitKey: "unidadeTempoEnum",
 						unitOptions: timeUnits,
 					},
 				],
@@ -98,16 +102,16 @@ export default class CalculatorUI {
 						placeholder: "Ex: 0.05",
 						icon: "ph-percent",
 						hasUnits: true,
-						unitKey: "unidade_i",
+						unitKey: "unidadeTaxaJurosEnum",
 						unitOptions: rateUnits,
 					},
 					{
 						key: "n",
 						label: "Tempo (n)",
-						placeholder: "Ex: 2",
+						placeholder: "Ex: 24",
 						icon: "ph-calendar-blank",
 						hasUnits: true,
-						unitKey: "unidade_n",
+						unitKey: "unidadeTempoEnum",
 						unitOptions: timeUnits,
 					},
 				],
@@ -133,10 +137,10 @@ export default class CalculatorUI {
 					{
 						key: "n",
 						label: "Tempo (n)",
-						placeholder: "Ex: 2",
+						placeholder: "Ex: 24",
 						icon: "ph-calendar-blank",
 						hasUnits: true,
-						unitKey: "unidade_n",
+						unitKey: "unidadeTempoEnum",
 						unitOptions: timeUnits,
 					},
 				],
@@ -165,7 +169,7 @@ export default class CalculatorUI {
 						placeholder: "Ex: 0.05",
 						icon: "ph-percent",
 						hasUnits: true,
-						unitKey: "unidade_i",
+						unitKey: "unidadeTaxaJurosEnum",
 						unitOptions: rateUnits,
 					},
 				],
@@ -182,16 +186,16 @@ export default class CalculatorUI {
 						placeholder: "Ex: 0.10",
 						icon: "ph-percent",
 						hasUnits: true,
-						unitKey: "unidade_I",
+						unitKey: "unidadeTaxaJurosEnum",
 						unitOptions: rateUnits,
 					},
 					{
 						key: "n",
 						label: "Tempo (n)",
-						placeholder: "Ex: 2",
+						placeholder: "Ex: 6",
 						icon: "ph-calendar-blank",
 						hasUnits: true,
-						unitKey: "unidade_n",
+						unitKey: "unidadeTempoEnum",
 						unitOptions: timeUnits,
 					},
 				],
@@ -208,16 +212,16 @@ export default class CalculatorUI {
 						placeholder: "Ex: 0.05",
 						icon: "ph-percent",
 						hasUnits: true,
-						unitKey: "unidade_Ic",
+						unitKey: "unidadeTaxaJurosEnum",
 						unitOptions: rateUnits,
 					},
 					{
 						key: "n",
 						label: "Tempo (n)",
-						placeholder: "Ex: 2",
+						placeholder: "Ex: 1",
 						icon: "ph-calendar-blank",
 						hasUnits: true,
-						unitKey: "unidade_n",
+						unitKey: "unidadeTempoEnum",
 						unitOptions: timeUnits,
 					},
 				],
@@ -295,10 +299,10 @@ export default class CalculatorUI {
 					)
 					.join("");
 				selectHtml = `
-                    <select name="${param.unitKey}" class="w-full sm:w-1/3 bg-slate-50 border border-slate-300 sm:border-l-0 rounded-sm sm:rounded-l-none px-2 py-2.5 sm:py-0 text-sm text-slate-700 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all hover:bg-slate-100 cursor-pointer mt-2 sm:mt-0">
-                        ${optionsHtml}
-                    </select>
-                `;
+                            <select name="${param.unitKey}" class="w-full sm:w-1/3 bg-slate-50 border border-slate-300 sm:border-l-0 rounded-sm sm:rounded-l-none px-2 py-2.5 sm:py-0 text-sm text-slate-700 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all hover:bg-slate-100 cursor-pointer mt-2 sm:mt-0">
+                                ${optionsHtml}
+                            </select>
+                        `;
 			}
 
 			const containerClass = param.hasUnits
@@ -306,18 +310,18 @@ export default class CalculatorUI {
 				: "relative flex";
 
 			const inputHtml = `
-                <div class="flex flex-col gap-1 fade-in w-full">
-                    <label for="${param.key}" class="text-sm font-semibold text-slate-700 ml-1">${param.label}</label>
-                    <div class="${containerClass}">
-                        <div class="absolute top-0 left-0 h-10 sm:h-full pl-3 flex items-center pointer-events-none text-slate-400 z-10">
-                            <i class="ph ${param.icon} text-lg"></i>
+                        <div class="flex flex-col gap-1 fade-in w-full">
+                            <label for="${param.key}" class="text-sm font-semibold text-slate-700 ml-1">${param.label}</label>
+                            <div class="${containerClass}">
+                                <div class="absolute top-0 left-0 h-10 sm:h-full pl-3 flex items-center pointer-events-none text-slate-400 z-10">
+                                    <i class="ph ${param.icon} text-lg"></i>
+                                </div>
+                                <input type="number" step="any" id="${param.key}" name="${param.key}" placeholder="${param.placeholder}" required
+                                    class="${inputClass}">
+                                ${selectHtml}
+                            </div>
                         </div>
-                        <input type="number" step="any" id="${param.key}" name="${param.key}" placeholder="${param.placeholder}" required
-                            class="${inputClass}">
-                        ${selectHtml}
-                    </div>
-                </div>
-            `;
+                    `;
 			this.dynamicInputs.insertAdjacentHTML("beforeend", inputHtml);
 		});
 
@@ -359,11 +363,9 @@ export default class CalculatorUI {
 	}
 
 	showErrorPopup(error) {
-		// Cenário 1: O erro veio do backend (Validação, Regra de Negócio, etc)
 		if (error && error.isBackendError && error.payload) {
 			const data = error.payload;
 
-			// Tratamento específico para o objeto "messages" de validação do Spring Boot
 			if (data.messages && typeof data.messages === "object") {
 				let errorListHtml =
 					'<ul class="text-left text-sm text-slate-600 mt-3 list-disc list-inside bg-slate-50 p-4 rounded-sm border border-slate-200">';
@@ -397,10 +399,9 @@ export default class CalculatorUI {
 							"w-full bg-slate-800 hover:bg-slate-700 text-white font-medium py-3 px-6 rounded-sm transition-all focus:ring-4 focus:ring-slate-200 outline-none",
 					},
 				});
-				return; // Para a execução aqui
+				return;
 			}
 
-			// Caso seja um erro tratado do backend, mas sem a estrutura "messages"
 			Swal.fire({
 				html: `
                             <div class="flex flex-col items-center pt-6 pb-2">
@@ -425,7 +426,6 @@ export default class CalculatorUI {
 			return;
 		}
 
-		// Cenário 2: Erro genérico (Servidor offline, CORS bloqueado, Sem internet)
 		Swal.fire({
 			html: `
                         <div class="flex flex-col items-center pt-8 pb-4">
@@ -436,7 +436,7 @@ export default class CalculatorUI {
                             <p class="text-sm text-slate-500 font-sans leading-relaxed px-4 text-center">
                                 Não conseguimos conectar com a sua API.<br/>
                                 Certifique-se de que o backend está rodando em<br/>
-                                <strong class="text-slate-700 bg-slate-100 px-2 py-0.5 rounded">localhost:8080</strong>
+                                <strong class="text-slate-700 bg-slate-100 px-2 py-0.5 rounded">${this.api.baseUrl}</strong>
                             </p>
                         </div>
                     `,
@@ -468,7 +468,7 @@ export default class CalculatorUI {
 		}
 
 		if (!isNaN(finalValue) && finalValue.toString().includes(".")) {
-			finalValue = parseFloat(finalValue).toFixed(4);
+			finalValue = parseFloat(finalValue).toFixed(6); // Ajustado para 6 casas decimais como no seu Java
 		}
 
 		this.resultValue.textContent = finalValue;
