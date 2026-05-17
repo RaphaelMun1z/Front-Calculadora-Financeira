@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Calculadora Financeira - API</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script src="https://unpkg.com/@phosphor-icons/web"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="style.css">
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						fontFamily: {
+							sans: ["Poppins", "sans-serif"],
+						},
+						colors: {
+							primary: "#0ea5e9",
+							secondary: "#334155",
+						},
+					},
+				},
+			};
+		</script>
+		<script type="module" src="./js/main.js"></script>
+	</head>
+	<body class="flex items-center justify-center p-4 md:p-8 text-slate-800">
+		<main class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-12 gap-6">
+			<!-- Painel Lateral: Seleção de Operação -->
+			<aside class="md:col-span-4 flex flex-col gap-4">
+				<div class="glass-card rounded-sm p-5 md:p-6 h-full">
+					<div class="flex items-center gap-3 mb-6">
+						<i class="ph ph-calculator text-3xl text-primary"></i>
+						<h1 class="text-xl font-bold text-slate-800">
+							Operações
+						</h1>
+					</div>
+
+					<nav class="flex flex-col gap-2" id="operation-menu">
+						<!-- Botões gerados via JS -->
+					</nav>
+				</div>
+			</aside>
+
+			<!-- Área Principal: Formulário e Resultados -->
+			<section class="md:col-span-8 flex flex-col gap-6">
+				<div
+					class="glass-card rounded-sm p-6 md:p-8 relative overflow-hidden transition-all duration-300"
+				>
+					<div class="flex flex-col mb-6">
+						<h2
+							id="form-title"
+							class="text-2xl font-bold text-slate-800"
+						>
+							Selecione uma operação
+						</h2>
+						<p
+							id="form-subtitle"
+							class="text-sm text-slate-500 mt-1"
+						>
+							Escolha um item ao lado para iniciar
+						</p>
+					</div>
+
+					<form id="calc-form" class="hidden fade-in">
+						<!-- O formulário se adapta para 1 coluna no mobile e 2 no desktop -->
+						<div
+							id="dynamic-inputs"
+							class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 mb-8"
+						>
+							<!-- Inputs gerados via JS -->
+						</div>
+
+						<button
+							type="submit"
+							id="submit-btn"
+							class="w-full bg-primary hover:bg-sky-600 text-white font-semibold py-3.5 px-6 rounded-sm transition-all duration-200 flex justify-center items-center gap-2 transform hover:-translate-y-0.5 focus:ring-4 focus:ring-sky-200 outline-none"
+						>
+							<i
+								class="ph ph-lightning text-lg"
+								id="btn-icon"
+							></i>
+							<i
+								class="ph ph-circle-notch animate-spin text-lg hidden"
+								id="loading-spinner"
+							></i>
+							<span id="btn-text">Calcular</span>
+						</button>
+					</form>
+
+					<!-- Estado Vazio Inicial -->
+					<div
+						id="empty-state"
+						class="flex flex-col items-center justify-center py-16 text-slate-400 fade-in"
+					>
+						<i
+							class="ph ph-math-operations text-6xl mb-4 opacity-50"
+						></i>
+						<p class="text-center">Aguardando seleção...</p>
+					</div>
+				</div>
+
+				<!-- Card de Resultado -->
+				<div
+					id="result-card"
+					class="glass-card rounded-sm p-6 hidden fade-in border-l-4 border-l-emerald-500"
+				>
+					<div class="flex items-center gap-4">
+						<div
+							class="bg-emerald-100 text-emerald-600 p-3 rounded shrink-0"
+						>
+							<i class="ph ph-check-circle text-2xl"></i>
+						</div>
+						<div class="overflow-hidden">
+							<p
+								class="text-xs md:text-sm font-medium text-slate-500 uppercase tracking-wider truncate"
+							>
+								Resultado do Cálculo
+							</p>
+							<p
+								id="result-value"
+								class="text-2xl md:text-3xl font-bold text-slate-800 mt-1 truncate"
+							>
+								---
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+	</body>
+</html>

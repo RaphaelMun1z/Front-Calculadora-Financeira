@@ -1,0 +1,38 @@
+body {
+	background: linear-gradient(135deg, #f0f9ff 0%, #cffafe 100%);
+	min-height: 100vh;
+}
+
+.glass-card {
+	background: rgba(255, 255, 255, 0.95);
+	border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.fade-in {
+	animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Estilo customizado para o input numérico (remove as setinhas) */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Estilo customizado para o Swal modal para manter a estética flat e Poppins */
+.swal2-popup.custom-swal-popup {
+	padding: 0 !important;
+	border-radius: 0.25rem !important; /* rounded-sm */
+	border: 1px solid #f1f5f9;
+}
