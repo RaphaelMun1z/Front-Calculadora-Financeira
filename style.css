@@ -1,0 +1,99 @@
+body {
+	background: linear-gradient(135deg, #f0f9ff 0%, #cffafe 100%);
+	min-height: 100vh;
+}
+
+.glass-card {
+	background: rgba(255, 255, 255, 0.95);
+	border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.part-tab {
+	min-width: 90px;
+	padding: 0.7rem 1rem;
+	border-radius: 0.125rem;
+	font-size: 0.875rem;
+	font-weight: 600;
+	color: #64748b;
+	transition: all 0.2s ease;
+}
+
+.part-tab:hover {
+	color: #0ea5e9;
+}
+
+.part-tab.active {
+	background: #ffffff;
+	color: #0ea5e9;
+	box-shadow: 0 1px 3px rgba(15, 23, 42, 0.12);
+}
+
+.fade-in {
+	animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.result-table-wrapper {
+	overflow-x: auto;
+	border: 1px solid #e2e8f0;
+	border-radius: 0.125rem;
+}
+
+.result-table {
+	width: 100%;
+	min-width: 860px;
+	border-collapse: collapse;
+	font-size: 0.82rem;
+}
+
+.result-table th {
+	background: #f8fafc;
+	color: #475569;
+	font-weight: 600;
+	text-align: right;
+	padding: 0.75rem;
+	border-bottom: 1px solid #e2e8f0;
+	white-space: nowrap;
+}
+
+.result-table th:first-child,
+.result-table td:first-child {
+	text-align: center;
+}
+
+.result-table td {
+	padding: 0.75rem;
+	text-align: right;
+	border-bottom: 1px solid #f1f5f9;
+	white-space: nowrap;
+}
+
+.result-table tbody tr:last-child td {
+	border-bottom: 0;
+}
+
+.result-table tbody tr:hover {
+	background: #f8fafc;
+}
+
+.swal2-popup.custom-swal-popup {
+	padding: 0 !important;
+	border-radius: 0.25rem !important;
+	border: 1px solid #f1f5f9;
+}
